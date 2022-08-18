@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>class组件的三大的属性 - 读书笔记</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="李文举的个人技术网页">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">关于</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Rust学习笔记</li><li class="chapter-item expanded "><a href="../rust/index.html"><strong aria-hidden="true">1.</strong> 关于</a></li><li class="chapter-item expanded "><a href="../rust/tutorial.html"><strong aria-hidden="true">2.</strong> Rust学习资源整合</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Emacs学习笔记</li><li class="chapter-item expanded "><a href="../emacs/index.html"><strong aria-hidden="true">3.</strong> 关于</a></li><li class="chapter-item expanded "><a href="../emacs/tutorial.html"><strong aria-hidden="true">4.</strong> 入门教程</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Node相关</li><li class="chapter-item expanded "><a href="../node/index.html"><strong aria-hidden="true">5.</strong> 关于</a></li><li class="chapter-item expanded "><a href="../node/setting.html"><strong aria-hidden="true">6.</strong> yarn与npm设置软件源</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">React</li><li class="chapter-item expanded "><a href="../react/index.html"><strong aria-hidden="true">7.</strong> 关于</a></li><li class="chapter-item expanded "><a href="../react/react_01.html"><strong aria-hidden="true">8.</strong> 创建虚拟DOM的两种方式</a></li><li class="chapter-item expanded "><a href="../react/react_02.html"><strong aria-hidden="true">9.</strong> jsx语法规则</a></li><li class="chapter-item expanded "><a href="../react/react_03.html"><strong aria-hidden="true">10.</strong> React组件</a></li><li class="chapter-item expanded "><a href="../react/react_04.html" class="active"><strong aria-hidden="true">11.</strong> class组件的三大的属性</a></li><li class="chapter-item expanded "><a href="../react/react_05.html"><strong aria-hidden="true">12.</strong> React事件处理</a></li><li class="chapter-item expanded "><a href="../react/react_06.html"><strong aria-hidden="true">13.</strong> React中收集表单数据</a></li><li class="chapter-item expanded "><a href="../react/react_07.html"><strong aria-hidden="true">14.</strong> js高阶函数与函数柯里化</a></li><li class="chapter-item expanded "><a href="../react/react_08.html"><strong aria-hidden="true">15.</strong> 组件的生命周期</a></li><li class="chapter-item expanded "><a href="../react/react_09.html"><strong aria-hidden="true">16.</strong> Diffing算法与key</a></li><li class="chapter-item expanded "><a href="../react/react_10.html"><strong aria-hidden="true">17.</strong> react脚手架配置代理</a></li><li class="chapter-item expanded "><a href="../react/react_11.html"><strong aria-hidden="true">18.</strong> axios与fetch</a></li><li class="chapter-item expanded "><a href="../react/react_12.html"><strong aria-hidden="true">19.</strong> 组件间的通信方式</a></li><li class="chapter-item expanded "><a href="../react/react_13.html"><strong aria-hidden="true">20.</strong> Diffing算法与key</a></li><li class="chapter-item expanded "><a href="../react/react_14.html"><strong aria-hidden="true">21.</strong> Diffing算法与key</a></li><li class="chapter-item expanded "><a href="../react/react_15.html"><strong aria-hidden="true">22.</strong> Diffing算法与key</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">读书笔记</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="class组件的三大的属性"><a class="header" href="#class组件的三大的属性">class组件的三大的属性</a></h1>
+<h2 id="1-state"><a class="header" href="#1-state">1. state</a></h2>
+<pre><code class="language-jsx">    class Hello extends React.Component {
+
+        //初始化state的原始写法需要写constructor函数，函数固定接收props参数
+        constructor(props) {
+            //因为Hello组件继承了React.Component所以必须写super
+            //props参数必须传给super
+            super(props);
+            //初始化state
+            this.state = {isHi: false};
+            //解决changeData函数中的this指向问题
+            this.changeData = this.changeData.bind(this);
+        }
+
+        changeData() {
+            //这个函数中的this指向有问题！解决方式有两种
+            //解构赋值
+            const { isHi } = this.state;
+            //状态必须通过setState进行更新,且更新是一种合并，不是替换。
+            this.setState({
+                isHi: !isHi
+            });
+        }
+
+        //render函数会被调用1到n次，这里的n是指界面更新了n次
+        render () {
+            const { isHi } = this.state;
+            return (
+                &lt;h1 onClick={this.changeData}&gt;Hello还是Hi：{isHi ? &quot;Hello&quot; : &quot;Hi&quot; }！&lt;/h1&gt;
+            )
+        }
+    }
+</code></pre>
+<ul>
+<li>注意
+<ul>
+<li>this指向问题
+<img src="./images/this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98.png" alt="img" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="state简写方式"><a class="header" href="#state简写方式">state简写方式</a></h3>
+<pre><code class="language-jsx">    class Hello extends React.Component {
+        //初始化状态
+        state = {isHi: false};
+
+        //赋值语句的形式+箭头函数可以解决this指向问题
+        changeData = () =&gt; {
+            const { isHi } = this.state;
+            this.setState({
+                isHi: !isHi
+            });
+        }
+
+        render () {
+            const { isHi } = this.state;
+            return (
+                &lt;h1 onClick={this.changeData}&gt;Hello还是Hi：{isHi ? &quot;Hello&quot; : &quot;Hi&quot; }！&lt;/h1&gt;
+            )
+        }
+    }
+</code></pre>
+<h2 id="2-props"><a class="header" href="#2-props">2. props</a></h2>
+<ul>
+<li>props是只读的</li>
+</ul>
+<h3 id="props的基础使用"><a class="header" href="#props的基础使用">props的基础使用</a></h3>
+<pre><code class="language-jsx">    class Person extends React.Component {
+        render() {
+            const { name, age } = this.props;
+            return (
+                &lt;ul&gt;
+                    &lt;li&gt;name : {name}&lt;/li&gt;
+                    &lt;li&gt;age : {age}&lt;/li&gt;
+                &lt;/ul&gt;
+            )
+        }
+    }
+
+    function App() {
+
+        const p = { name: &quot;li&quot;, age: 19 };
+        return (
+            &lt;div&gt;
+                {/* //传递props */}
+                &lt;Person name=&quot;rust&quot; age={19} /&gt;
+                {/* //对象的展开操作 */}
+                &lt;Person {...p}/&gt;
+            &lt;/div&gt;
+        );
+    }
+</code></pre>
+<h3 id="对props进行限制"><a class="header" href="#对props进行限制">对props进行限制</a></h3>
+<pre><code class="language-jsx">    import PropTypes from &quot;prop-types&quot;;
+
+    class Person extends React.Component {
+
+        //对标签属性进行类型、必要性的限制
+        static propTypes = {
+            name:PropTypes.string.isRequired, //限制name必传，且为字符串
+            age:PropTypes.number,//限制age为数值
+        }
+
+        //指定默认标签属性值
+        static defaultProps = {
+            age:18 //age默认值为18
+        }
+
+        render() {
+            const { name, age } = this.props;
+            return (
+                &lt;ul&gt;
+                    &lt;li&gt;name : {name}&lt;/li&gt;
+                    &lt;li&gt;age : {age}&lt;/li&gt;
+                &lt;/ul&gt;
+            )
+        }
+    }
+    
+    //---------------
+    //上面是propTypes的简写形式，下面是复杂形式
+
+    //对标签属性进行类型、必要性的限制
+    Person.propTypes = {
+        name:PropTypes.string.isRequired, //限制name必传，且为字符串
+        sex:PropTypes.string,//限制sex为字符串
+        age:PropTypes.number,//限制age为数值
+        speak:PropTypes.func,//限制speak为函数
+    }
+    //指定默认标签属性值
+    Person.defaultProps = {
+        sex:'男',//sex默认值为男
+        age:18 //age默认值为18
+    }
+</code></pre>
+<h3 id="函数式组件使用props"><a class="header" href="#函数式组件使用props">函数式组件使用props</a></h3>
+<pre><code class="language-jsx">    function Person(props) {
+        const { name, age } = props;
+        return (
+            &lt;ul&gt;
+                &lt;li&gt;name : {name}&lt;/li&gt;
+                &lt;li&gt;age : {age}&lt;/li&gt;
+            &lt;/ul&gt;
+        )
+    }
+
+    function App() {
+
+        const p = { name: &quot;li&quot;, age: 19 };
+        return (
+            &lt;div&gt;
+                &lt;Person name=&quot;rust&quot; age={19} /&gt;
+                {/* //对象的展开操作 */}
+                &lt;Person {...p} /&gt;
+            &lt;/div&gt;
+        );
+    }
+</code></pre>
+<h2 id="3-ref"><a class="header" href="#3-ref">3. Ref</a></h2>
+<h3 id="字符串形式的ref"><a class="header" href="#字符串形式的ref">字符串形式的ref</a></h3>
+<ul>
+<li>字符串形式的ref即将弃用，这里只是展示一下如何使用！</li>
+</ul>
+<pre><code class="language-jsx">    class Demo extends React.Component {
+
+        showData = () =&gt; {
+            // console.log(this.refs)
+            // const input1 = this.refs.input1;
+            const { input1 } = this.refs;
+            alert(input1.value)
+        }
+
+        render() {
+            return (
+                &lt;div&gt;
+                    &lt;input ref=&quot;input1&quot; type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot; /&gt;&amp;nbsp;
+                    &lt;button onClick={this.showData}&gt;点我提示左侧的数据&lt;/button&gt;&amp;nbsp;
+                &lt;/div&gt;
+            )
+        }
+    }
+</code></pre>
+<h3 id="回调形式的ref"><a class="header" href="#回调形式的ref">回调形式的ref</a></h3>
+<ul>
+<li>可以使用！</li>
+</ul>
+<pre><code class="language-jsx">    class Demo extends React.Component {
+
+        showData = () =&gt; {
+            alert(this.input1.value)
+            alert(this.input2.value)
+        }
+
+        //或者这样写回调形式的ref
+        getNode = (currentNode) =&gt; {
+            this.input2 = currentNode;
+        }
+
+        render() {
+            return (
+                &lt;div&gt;
+                    &lt;input ref={(currentNode) =&gt; { this.input1 = currentNode } } type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot; /&gt;&amp;nbsp;
+
+                    &lt;input ref={this.getNode} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot; /&gt;&amp;nbsp;
+
+                    &lt;button onClick={this.showData}&gt;点我提示左侧的数据&lt;/button&gt;&amp;nbsp;
+                &lt;/div&gt;
+            )
+        }
+    }
+</code></pre>
+<h3 id="creatref"><a class="header" href="#creatref">creatRef</a></h3>
+<ul>
+<li>提倡使用！！！</li>
+</ul>
+<pre><code class="language-jsx">class Demo extends React.Component {
+
+	//React.createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点
+	input1 = React.createRef();
+	
+	showData = () =&gt; {
+		//需要加current
+		alert(this.input1.current.value)
+	}
+
+	render() {
+		console.log(this)
+		return (
+			&lt;div&gt;
+				&lt;input ref={this.input1} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot; /&gt;&amp;nbsp;
+				&lt;button onClick={this.showData}&gt;点我提示左侧的数据&lt;/button&gt;&amp;nbsp;
+			&lt;/div&gt;
+		)
+	}
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../react/react_03.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../react/react_05.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../react/react_03.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../react/react_05.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
